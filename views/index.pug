@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  each article in articles
+    article
+      h2= article.title
+      p= article.content
+      p Author: #{article.reporter.name}
+      p Topic: #{article.topic}
+      p Date: #{article.date}

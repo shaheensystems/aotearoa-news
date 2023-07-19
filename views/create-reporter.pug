@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Create Reporter
+
+  form(action='/reporter/create', method='POST')
+    div
+      label(for='name') Name:
+      input(type='text', name='name')
+    div
+      label(for='email') Email:
+      input(type='email', name='email')
+    div
+      button(type='submit') Create

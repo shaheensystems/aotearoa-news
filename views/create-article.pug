@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 Create Article
+
+  form(action='/article/create', method='POST')
+    div
+      label(for='title') Title:
+      input(type='text', name='title')
+    div
+      label(for='content') Content:
+      textarea(name='content')
+    div
+      label(for='reporter') Reporter:
+      select(name='reporter')
+        each reporter in reporters
+          option(value=reporter._id)= reporter.name
+    div
+      label(for='topic') Topic:
+      input(type='text', name='topic')
+    div
+      button(type='submit') Create
