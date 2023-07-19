@@ -5,11 +5,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost/newspaper', { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Could not connect to MongoDB:', err));
+// Connect to MongoDB- add details of actual MongoDB server before running this code. 
 
+  const mongoose = require("mongoose");
+  mongoose.set("strictQuery", false);
+  const mongoDB = "mongodb+srv://user:password@mongodburl/?retryWrites=true&w=majority";
+  
+  main().catch((err) => console.log(err));
+  async function main() {
+    await mongoose.connect(mongoDB);
+  }
 var app = express();
 
 // view engine setup
